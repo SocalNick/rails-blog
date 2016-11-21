@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118232457) do
+ActiveRecord::Schema.define(version: 20161120231628) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "retweet_count",             default: 0, null: false
+    t.string   "tweet_id_str",  limit: 255
   end
 
   create_table "comments", force: :cascade do |t|
