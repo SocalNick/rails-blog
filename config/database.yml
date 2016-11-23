@@ -1,3 +1,12 @@
+<%
+  require 'json'
+
+  vcap_services = JSON.parse(ENV.fetch('VCAP_SERVICES') { '{}' })
+  if vcap_services['elephantsql']
+    ENV['DATABASE_URL'] = vcap_services['elephantsql'][0]['credentials']['uri']
+  end
+%>
+
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -26,4 +35,4 @@ production:
   # For details on connection pooling, see rails configuration guide
   #   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV.fetch("DATABASE_URL") { '' } %>
