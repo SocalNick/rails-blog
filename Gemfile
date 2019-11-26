@@ -2,7 +2,7 @@ ruby "~> 2.4.0"
 source 'https://rubygems.org'
 
 gem 'twitter'
-gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'bootstrap', '~> 4.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
